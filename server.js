@@ -18,12 +18,16 @@ app.get("/", (req, res) => {
 
 app.post("/room/create", async (req, res) => {
   // return 400 if the request has an empty body or no roomName
-  if (!req.body || !req.body.roomName) {
-    return res.status(400).send("Must include roomName argument.");
+  if (!req.body.roomName) {
+    return res.status(400).send("Must include roomName parameter.");
+  } else if(!req.body.group) {
+    return res.status(400).send("Must include group parameter.");
   }
   const roomName = req.body.roomName;
+  const isGroup = req.body.group;
+  
   // find or create a room with the given roomName
-  let room = await createRoom(roomName);
+  let room = await createRoom(roomName, isGroup);
 
   if(room.success) {
     res.send({

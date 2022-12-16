@@ -9,11 +9,13 @@ const twilioClient = require("twilio")(
   { accountSid: process.env.TWILIO_ACCOUNT_SID }
 );
 
-const createRoom = async (roomName) => {
+const createRoom = async (roomName, group) => {
+  let type = group === 'true' ? 'group' : 'go';
+
   try {
     const roomCreated = await twilioClient.video.rooms.create({
       uniqueName: roomName,
-      type: "group",
+      type: type,
     });
 
     return {
