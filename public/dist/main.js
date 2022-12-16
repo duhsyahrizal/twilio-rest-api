@@ -18,7 +18,10 @@ const createRoom = async (event) => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ roomName: roomName }),
+    body: JSON.stringify({ 
+      roomName: roomName,
+      group: true
+    }),
   });
 
   const resJson = await response.json();
@@ -44,7 +47,10 @@ const startRoom = async (event) => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ roomName: roomName }),
+    body: JSON.stringify({
+      roomName: roomName,
+      group: true,
+    }),
   });
 
   const { success, message, token } = await response.json();

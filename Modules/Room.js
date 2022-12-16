@@ -19,7 +19,7 @@ const createRoom = async (roomName, group) => {
 
     return {
       success: true,
-      message: "room created!",
+      message: `room ${roomCreated.uniqueName} created!`,
       room: roomCreated
     };
   } catch (error) {
