@@ -4,9 +4,8 @@ const VideoGrant = AccessToken.VideoGrant;
 
 // create the twilioClient
 const twilioClient = require("twilio")(
-  process.env.TWILIO_API_KEY_SID,
-  process.env.TWILIO_API_KEY_SECRET,
-  { accountSid: process.env.TWILIO_ACCOUNT_SID }
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
 );
 
 const createRoom = async (roomName, group) => {
