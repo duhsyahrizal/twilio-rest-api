@@ -38,7 +38,11 @@ const joinRoom = async (roomName) => {
   try {
     const room = await twilioClient.video.rooms(roomName).fetch();
 
-    return room;
+    return {
+      success: true,
+      message: 'Room ' + room.uniqueName + ' fetched!',
+      room: room
+    };
   } catch (error) {
     if(error.code == 20404) {
       return {

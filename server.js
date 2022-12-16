@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = 5000;
-const { createRoom, joinRoom, getAccessToken, kickParticipant } = require('./Room');
+const { createRoom, joinRoom, getAccessToken, kickParticipant } = require('./Modules/Room');
 
 // use the Express JSON middleware
 app.use(express.urlencoded({ extended: false }));
