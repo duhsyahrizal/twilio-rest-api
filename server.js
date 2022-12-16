@@ -65,7 +65,7 @@ app.post("/room/join", async (req, res) => {
   } else {
     res.send({
       success: room.success,
-      message: '',
+      message: room.message,
     });
   }
 })

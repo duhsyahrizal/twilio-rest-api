@@ -51,9 +51,10 @@ const joinRoom = async (roomName) => {
         message: 'Room ' + roomName + ' was not found!'
       }
     } else {
+      console.log(true)
       return {
         success: false,
-        message: JSON.stringify(error),
+        message: JSON.stringify(error.message),
       }
     }
   }
