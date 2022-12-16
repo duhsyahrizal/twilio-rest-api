@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
-const port = 5000;
+const port = process.env.SERVER_PORT;
 const { createRoom, joinRoom, getAccessToken, kickParticipant } = require('./Modules/Room');
 
 // use the Express JSON middleware
@@ -61,7 +61,7 @@ app.post("/room/join", async (req, res) => {
   } else {
     res.send({
       success: room.success,
-      message: room.message,
+      message: '',
     });
   }
 })
